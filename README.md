@@ -3,7 +3,7 @@
 デザイントークン設計に特化したカラーパレット生成ツール。
 A color palette generator specialized for design token workflows.
 
-**Live demo:** *(coming soon)*
+**Live demo:** https://color-token-generator.k-info.workers.dev/
 
 ---
 
