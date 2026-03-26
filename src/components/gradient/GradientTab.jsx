@@ -61,8 +61,12 @@ export function GradientTab({presets,T,bp,paletteFull,semanticTokens,savedGradie
 
   const saveToList=()=>{
     if(!editGrad) return;
-    const slug=`custom-${Date.now()}`;
-    setSavedGradients(prev=>[...prev,{...editGrad,slug,name:"カスタム "+slug.slice(-4),category:"カスタム"}]);
+    setSavedGradients(prev=>{
+      const customCount=prev.filter(g=>g.category==="オリジナル").length;
+      const num=String(customCount+1).padStart(2,'0');
+      const slug=`original-${num}`;
+      return [...prev,{...editGrad,slug,name:`オリジナル ${num}`,category:"オリジナル"}];
+    });
   };
 
   const gradExportCode=useMemo(()=>buildGradientExport(savedGradients,gradExportFmt),[savedGradients,gradExportFmt]);
